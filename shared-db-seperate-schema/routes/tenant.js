@@ -3,10 +3,12 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const { getTenantPrismaClient } = require('../prismaClientFactory');
 const { JWT_SECRET } = require('../config');
+const validate = require('../middleware/validate');
+const { tenantLoginSchema } = require('../schemas/schemas');
 
 const router = express.Router();
 
-router.post('/login', async (req, res) => {
+router.post('/login', validate(tenantLoginSchema), async (req, res) => {
   const { email, password, schema } = req.body;
   if (!schema) return res.status(400).json({ error: 'Schema required' });
   const prisma = getTenantPrismaClient(schema);

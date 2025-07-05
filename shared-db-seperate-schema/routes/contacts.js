@@ -1,5 +1,7 @@
 const express = require('express');
 const tenantAuthMiddleware = require('../middleware/tenantAuthMiddleware');
+const validate = require('../middleware/validate');
+const { contactCreateSchema } = require('../schemas/schemas');
 
 const router = express.Router();
 
@@ -12,7 +14,7 @@ router.get('/', tenantAuthMiddleware, async (req, res) => {
   }
 });
 
-router.post('/', tenantAuthMiddleware, async (req, res) => {
+router.post('/', tenantAuthMiddleware, validate(contactCreateSchema), async (req, res) => {
   const { name, email } = req.body;
   try {
     const contact = await req.prisma.contact.create({

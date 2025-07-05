@@ -7,6 +7,8 @@ const { execSync } = require('child_process');
 const bcrypt = require('bcryptjs');
 const { DATABASE_URL } = require('../config');
 const checkTenantSchemaMiddleware = require('../middleware/checkTenantSchemaMiddleware');
+const validate = require('../middleware/validate');
+const { tenantCreateSchema, userCreateSchema } = require('../schemas/schemas');
 
 const router = express.Router();
 const prisma = getPrismaClient();
@@ -16,7 +18,7 @@ router.get('/tenants', superAdminAuthMiddleware, async (req, res) => {
   res.json(tenants);
 });
 
-router.post('/tenants', superAdminAuthMiddleware, async (req, res) => {
+router.post('/tenants', superAdminAuthMiddleware, validate(tenantCreateSchema), async (req, res) => {
   const { name, schemaName } = req.body;
   if (!name || !schemaName) {
     return res.status(400).json({ error: 'name and schemaName are required' });
@@ -54,7 +56,7 @@ router.post('/tenants', superAdminAuthMiddleware, async (req, res) => {
   }
 });
 
-router.post('/tenants/:schema/users', superAdminAuthMiddleware, checkTenantSchemaMiddleware, async (req, res) => {
+router.post('/tenants/:schema/users', superAdminAuthMiddleware, checkTenantSchemaMiddleware, validate(userCreateSchema), async (req, res) => {
   const { schema } = req.params;
   const { email, name, password } = req.body;
   if (!email || !name || !password) {
