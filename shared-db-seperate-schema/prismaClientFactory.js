@@ -1,18 +1,19 @@
-const { PrismaClient } = require('@prisma/client');
+const { PrismaClient } = require('./generated/tenant');
 
-const clients = {};
-
-function getPrismaClient(schema) {
-  if (!clients[schema]) {
-    clients[schema] = new PrismaClient({
-      datasources: {
-        db: {
-          url: process.env.DATABASE_URL.replace('schema=public', `schema=${schema}`),
-        },
-      },
-    });
+function getPrismaClient(schemaName) {
+  let baseUrl = process.env.DATABASE_URL;
+  // If schema param exists, replace it; otherwise, append it
+  if (baseUrl.includes('schema=')) {
+    baseUrl = baseUrl.replace(/(schema=)[^&]+/, `$1${schemaName}`);
+  } else {
+    const sep = baseUrl.includes('?') ? '&' : '?';
+    baseUrl = `${baseUrl}${sep}schema=${schemaName}`;
   }
-  return clients[schema];
+  return new PrismaClient({
+    datasources: {
+      db: { url: baseUrl }
+    }
+  });
 }
 
 module.exports = { getPrismaClient }; 

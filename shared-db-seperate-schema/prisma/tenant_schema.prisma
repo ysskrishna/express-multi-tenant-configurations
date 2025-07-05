@@ -1,4 +1,14 @@
 // tenant_schema.prisma
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/tenant"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
 model User {
   user_id    String   @id @default(uuid())
   email      String   @unique
