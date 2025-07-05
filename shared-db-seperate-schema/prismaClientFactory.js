@@ -1,6 +1,11 @@
-const { PrismaClient } = require('./generated/tenant');
+function getPrismaClient() {
+  const { PrismaClient } = require('./generated/prisma');
+  return new PrismaClient();
+}
+
 
 function getTenantPrismaClient(schemaName) {
+  const { PrismaClient } = require('./generated/tenant');
   let baseUrl = process.env.DATABASE_URL;
   // If schema param exists, replace it; otherwise, append it
   if (baseUrl.includes('schema=')) {
@@ -16,4 +21,4 @@ function getTenantPrismaClient(schemaName) {
   });
 }
 
-module.exports = { getTenantPrismaClient }; 
+module.exports = { getTenantPrismaClient, getPrismaClient }; 

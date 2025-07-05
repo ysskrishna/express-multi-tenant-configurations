@@ -1,9 +1,9 @@
 const express = require('express');
-const { PrismaClient } = require('../generated/prisma');
+const { getPrismaClient } = require('../prismaClientFactory');
 const superAdminAuthMiddleware = require('../middleware/superAdminAuthMiddleware');
 
 const router = express.Router();
-const prisma = new PrismaClient();
+const prisma = getPrismaClient();
 
 router.get('/tenants', superAdminAuthMiddleware, async (req, res) => {
   const tenants = await prisma.tenant.findMany();
