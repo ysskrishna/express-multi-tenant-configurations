@@ -1,0 +1,2 @@
+CREATE DATABASE shared_schema_db;
+CREATE DATABASE seperate_schema_db;
