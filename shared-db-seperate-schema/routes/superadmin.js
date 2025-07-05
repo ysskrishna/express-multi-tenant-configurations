@@ -20,9 +20,6 @@ router.get('/tenants', superAdminAuthMiddleware, async (req, res) => {
 
 router.post('/tenants', superAdminAuthMiddleware, validate(tenantCreateSchema), async (req, res) => {
   const { name, schemaName } = req.body;
-  if (!name || !schemaName) {
-    return res.status(400).json({ error: 'name and schemaName are required' });
-  }
   try {
     // 1. Insert tenant in public schema
     const existing = await prisma.tenant.findFirst({ where: { OR: [{ name }, { schemaName }] } });
@@ -59,9 +56,6 @@ router.post('/tenants', superAdminAuthMiddleware, validate(tenantCreateSchema), 
 router.post('/tenants/:schema/users', superAdminAuthMiddleware, checkTenantSchemaMiddleware, validate(userCreateSchema), async (req, res) => {
   const { schema } = req.params;
   const { email, name, password } = req.body;
-  if (!email || !name || !password) {
-    return res.status(400).json({ error: 'email, name, and password are required' });
-  }
   try {
     const tenantPrisma = getTenantPrismaClient(schema);
     // Check if user already exists

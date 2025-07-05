@@ -10,7 +10,6 @@ const router = express.Router();
 
 router.post('/login', validate(tenantLoginSchema), async (req, res) => {
   const { email, password, schema } = req.body;
-  if (!schema) return res.status(400).json({ error: 'Schema required' });
   const prisma = getTenantPrismaClient(schema);
   try {
     const user = await prisma.user.findUnique({ where: { email } });
