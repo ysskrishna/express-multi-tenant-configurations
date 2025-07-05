@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { getPrismaClient } = require('../prismaClientFactory');
+const { getTenantPrismaClient } = require('../prismaClientFactory');
 const { JWT_SECRET } = require('../config');
 
 const tenantAuthMiddleware = (req, res, next) => {
@@ -12,7 +12,7 @@ const tenantAuthMiddleware = (req, res, next) => {
       schema: payload.schema,
       user_id: payload.user_id
     };
-    req.prisma = getPrismaClient(payload.schema);
+    req.prisma = getTenantPrismaClient(payload.schema);
     next();
   } catch (err) {
     return res.status(401).json({ error: 'Invalid token' });

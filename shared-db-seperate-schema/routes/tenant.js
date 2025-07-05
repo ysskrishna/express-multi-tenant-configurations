@@ -1,7 +1,7 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const { getPrismaClient } = require('../prismaClientFactory');
+const { getTenantPrismaClient } = require('../prismaClientFactory');
 const { JWT_SECRET } = require('../config');
 
 const router = express.Router();
@@ -9,7 +9,7 @@ const router = express.Router();
 router.post('/login', async (req, res) => {
   const { email, password, schema } = req.body;
   if (!schema) return res.status(400).json({ error: 'Schema required' });
-  const prisma = getPrismaClient(schema);
+  const prisma = getTenantPrismaClient(schema);
   try {
     const user = await prisma.user.findUnique({ where: { email } });
     if (!user || !(await bcrypt.compare(password, user.password))) {
