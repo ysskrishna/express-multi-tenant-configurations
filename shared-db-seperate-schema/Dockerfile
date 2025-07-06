@@ -16,5 +16,7 @@ COPY . .
 # Expose app port
 EXPOSE 3001
 
+RUN npm run prisma:generate
+
 # Start the app
 CMD ["npm", "start"]
