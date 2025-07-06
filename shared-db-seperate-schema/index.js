@@ -13,6 +13,10 @@ app.use('/superadmin', superadminRoutes);
 app.use('/tenant', tenantRoutes);
 app.use('/contacts', contactsRoutes);
 
+app.get('/', (req, res) => {
+  res.send({ message: 'Welcome to ysskrishna seperated schema API' });
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 }); 
