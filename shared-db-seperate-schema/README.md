@@ -2,6 +2,8 @@
 
 A Node.js/Express multi-tenant API using PostgreSQL and Prisma, where each tenant has a separate schema in a shared database. This approach provides strong data isolation while sharing infrastructure.
 
+![Architecture](../media/shared-db-seperate-schema-architecture.png)
+
 ## Features
 - **Multi-tenancy with separate schemas**: Each tenant's data is isolated in its own PostgreSQL schema.
 - **Superadmin management**: Create and list tenants, and create users for any tenant.
