@@ -31,6 +31,8 @@ services:
       timeout: 10s
       retries: 3
       start_period: 30s
+    profiles:
+      - express-shared-schema
   db:
     image: postgres:15
     environment:
