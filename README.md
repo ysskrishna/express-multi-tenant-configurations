@@ -1,4 +1,11 @@
-# Multi-Tenant Configurations
+# Express Multi-Tenant Configurations
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Docker](https://img.shields.io/badge/docker-%3E%3D20.10.0-blue?logo=docker)](https://www.docker.com/)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org)
+[![PostgreSQL Version](https://img.shields.io/badge/postgresql-%3E%3D13.0.0-blue)](https://www.postgresql.org)
+[![Prisma Version](https://img.shields.io/badge/prisma-6.12.0-blue)](https://www.prisma.io)
+[![Express Version](https://img.shields.io/badge/express-5.1.0-green)](https://expressjs.com)
 
 This repository demonstrates two different approaches to implementing multi-tenancy in a Node.js/Express application using PostgreSQL and Prisma ORM. It provides working examples of both shared database with separate schemas and shared database with shared schema architectures.
 

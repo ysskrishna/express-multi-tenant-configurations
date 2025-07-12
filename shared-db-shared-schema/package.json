@@ -3,14 +3,37 @@
   "version": "1.0.0",
   "description": "Multi-tenant API with shared schema (public) using Prisma and PostgreSQL",
   "main": "index.js",
+  "author": {
+    "name": "ysskrishna",
+    "url": "https://github.com/ysskrishna"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ysskrishna/express-multi-tenant-configurations"
+  },
+  "keywords": [
+    "multi-tenant",
+    "express",
+    "prisma",
+    "postgresql",
+    "shared-schema",
+    "api",
+    "nodejs",
+    "authentication",
+    "jwt",
+    "rest-api"
+  ],
+  "bugs": {
+    "url": "https://github.com/ysskrishna/express-multi-tenant-configurations/issues"
+  },
+  "homepage": "https://github.com/ysskrishna/express-multi-tenant-configurations#readme",
   "scripts": {
     "start": "node index.js",
     "prisma:generate": "prisma generate --schema=prisma/schema.prisma",
     "prisma:migrate": "prisma migrate dev --schema=prisma/schema.prisma",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@prisma/client": "^6.12.0",
     "bcryptjs": "^2.4.3",
