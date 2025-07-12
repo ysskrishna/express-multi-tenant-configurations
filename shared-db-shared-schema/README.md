@@ -2,6 +2,8 @@
 
 A multi-tenant API built with Node.js, Express, PostgreSQL, and Prisma, using a shared schema model. All tenant data resides in common database tables (public schema), with logical isolation using a tenantId field. This architecture simplifies management while supporting multi-tenant functionality.
 
+![Architecture](../media/shared-db-shared-schema-architecture.png)
+
 ## Features
 - **Multi-tenancy with shared schema**:  All data is stored in common tables and isolated logically via tenantId.
 - **Superadmin management**: Create and list tenants, and create users for any tenant.
