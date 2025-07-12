@@ -70,7 +70,7 @@ npm start
 ## API Overview
 
 ### Superadmin Endpoints (`/superadmin`)
-- `GET /superadmin/tenants` — List all tenants (requires `SUPER_ADMIN_TOKEN` in `Authorization` header)
+- `GET /superadmin/tenants` — List all tenants (requires `SUPER_ADMIN_TOKEN` in `x-super-admin-token` header)
 - `POST /superadmin/tenants` — Create a new tenant `{ name, schemaName }`
   - Creates a new schema in Postgres and runs migrations
 - `POST /superadmin/tenants/:schema/users` — Create a user in a tenant schema `{ email, name, password }`
