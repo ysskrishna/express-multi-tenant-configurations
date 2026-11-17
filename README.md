@@ -6,6 +6,7 @@
 [![PostgreSQL Version](https://img.shields.io/badge/postgresql-%3E%3D13.0.0-blue)](https://www.postgresql.org)
 [![Prisma Version](https://img.shields.io/badge/prisma-6.12.0-blue)](https://www.prisma.io)
 [![Express Version](https://img.shields.io/badge/express-5.1.0-green)](https://expressjs.com)
+[![Author site](https://img.shields.io/badge/author-ysskrishna.space-informational)](https://ysskrishna.space)
 
 This repository demonstrates two different approaches to implementing multi-tenancy in a Node.js/Express application using PostgreSQL and Prisma ORM. It provides working examples of both shared database with separate schemas and shared database with shared schema architectures.
 
@@ -131,6 +132,32 @@ docker compose --profile express-shared-schema down
 
 Feel free to submit issues, fork the repository, and create pull requests for any improvements.
 
+## Built and maintained by
+
+Express Multi-Tenant Configurations is built and maintained by:
+
+| | Name | GitHub | Role |
+|---|------|--------|------|
+| <img src="https://github.com/ysskrishna.png?size=120" width="60" height="60" alt="Y. Siva Sai Krishna"> | **Y. Siva Sai Krishna** | [@ysskrishna](https://github.com/ysskrishna) | Creator |
+
+## Support
+
+If you find this project helpful:
+
+- ⭐ Star the repository
+- 🐛 [Report issues](https://github.com/ysskrishna/express-multi-tenant-configurations/issues)
+- 🔀 Submit pull requests
+- 💝 [Sponsor on GitHub](https://github.com/sponsors/ysskrishna)
+
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT © [Y. Siva Sai Krishna](https://github.com/ysskrishna) — see [LICENSE](LICENSE) for details.
+
+---
+
+<p align="left">
+  <a href="https://github.com/ysskrishna">Author's GitHub</a> •
+  <a href="https://linkedin.com/in/ysskrishna">Author's LinkedIn</a> •
+  <a href="https://ysskrishna.space">Author's site</a> •
+  <a href="https://github.com/ysskrishna/express-multi-tenant-configurations/issues">Report Issues</a>
+</p>

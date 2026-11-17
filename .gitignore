@@ -1,0 +1,4 @@
+
+# Local secret files. Example files stay tracked.
+shared-db-seperate-schema/.env
+shared-db-shared-schema/.env
